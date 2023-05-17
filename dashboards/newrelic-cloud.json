@@ -66,8 +66,7 @@
                 "accountIds": [
                   3462097
                 ],
-                "query": "SELECT latest(bdb_crdt_syncer_ingress_bytes) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 100 
-TIMESERIES 30000"
+                "query": "SELECT latest(bdb_crdt_syncer_ingress_bytes) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 100 TIMESERIES 30000"
               }
             ],
             "platformOptions": {
@@ -105,8 +104,7 @@ TIMESERIES 30000"
                 "accountIds": [
                   3462097
                 ],
-                "query": "SELECT latest(bdb_crdt_syncer_egress_bytes) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 100 
-TIMESERIES 30000"
+                "query": "SELECT latest(bdb_crdt_syncer_egress_bytes) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 100 TIMESERIES 30000"
               }
             ],
             "platformOptions": {
@@ -216,8 +214,7 @@ TIMESERIES 30000"
                 "accountIds": [
                   3462097
                 ],
-                "query": "SELECT latest(bdb_crdt_syncer_ingress_bytes_decompressed) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name 
-LIMIT 100 TIMESERIES 30000"
+                "query": "SELECT latest(bdb_crdt_syncer_ingress_bytes_decompressed) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 100 TIMESERIES 30000"
               }
             ],
             "platformOptions": {
@@ -255,8 +252,7 @@ LIMIT 100 TIMESERIES 30000"
                 "accountIds": [
                   3462097
                 ],
-                "query": "SELECT latest(bdb_crdt_syncer_egress_bytes_decompressed) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name 
-LIMIT 100 TIMESERIES 30000"
+                "query": "SELECT latest(bdb_crdt_syncer_egress_bytes_decompressed) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 100 TIMESERIES 30000"
               }
             ],
             "platformOptions": {
@@ -365,8 +361,7 @@ LIMIT 100 TIMESERIES 30000"
                 "accountIds": [
                   3462097
                 ],
-                "query": "SELECT latest(bdb_crdt_syncer_local_ingress_lag_time) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 
-100 TIMESERIES 30000"
+                "query": "SELECT latest(bdb_crdt_syncer_local_ingress_lag_time) FROM Metric WHERE bdb_name = {{database}} SINCE 60 MINUTES AGO UNTIL NOW FACET bdb_name LIMIT 100 TIMESERIES 30000"
               }
             ],
             "platformOptions": {
