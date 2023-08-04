@@ -1,9 +1,9 @@
 :linkattrs:
 :project-owner:      redis-field-engineering
 :project-name:       redis-enterprise-new-relic-dashboards-prometheus
-:name:               Redis Enterprise New Relic
+:name:               Redis Enterprise New Relic Prometheus Exporter
 
-= Redis Enterprise New Relic
+= Redis Enterprise New Relic Prometheus Exporter
 
 This repository contains a set of New Relic dashboards configured to display Redis Enterprise metrics exported through Prometheus.
 
@@ -23,7 +23,11 @@ To use this project, you will need:
 * A https://newrelic.com/[New Relic account] and https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/[New Relic license key]
 * A Prometheus deployment. You can run Prometheus in a container using the provided Dockerfile, or you can configure an existing Prometheus by referencing the included link:/prometheus.yml[prometheus.yml].
 
+=== Redis Enterprise Software
+
 To monitor a Redis Enterprise Software deployment, you will need the fully-qualified domain name (FQDN) for your cluster. The Prometheus endpoint is available on port 8070.
+
+=== Redis Enterprise Cloud
 
 To monitor a Redis Cloud deployment, you will need
 
@@ -41,7 +45,7 @@ This is the endpoint that you will provide when you configure Prometheus.
 
 == Usage
 
-=== Prometheus configuration
+=== Configure Prometheus
 
 From New Relic UI, find the left-hand menu and click "Add Data".
 
@@ -57,7 +61,7 @@ Next, find the 'remote_write' -> 'authorization' -> 'credentials' configuration 
 
 Finally, find the 'scrape_config' where 'job_name' is "redis-enterprise". Under 'static_configs', replace REDIS_ENTERPRISE_HOST with the hostname of your Redis Enterprise deployment.
 
-=== Run a Prometheus Server via Docker
+=== Run a Prometheus Server using Docker
 
 If you don't already have a Prometheus server, you can run Prometheus using a Docker container. This server will forward Prometheus metrics from Redis Enterprise to New Relic.
 
@@ -68,14 +72,11 @@ If this is successful, then use the included link:/Dockerfile[Dockerfile] to cre
 Build and tag the image
 
 [source,bash]
----
 docker build -t new-relic-redis-cloud-prometheus .
----
 
 Then run the image you just created: 
 
 [source,bash]
----
 docker run \
     -d \
     --name prometheus-exporter \
@@ -85,8 +86,6 @@ docker run \
     --pid=host \
     --cgroupns=host
 	new-relic-redis-cloud-prometheus
----
-
 
 Now you can test that metrics are flowing correctly.
 
@@ -98,7 +97,7 @@ This project includes sample New Relic dashboards that you can install to get yo
 
 To install the dashboards in the New Relic console, click on the 'Dashboards' link in the left menu, and then click 'Import Dashboard' in the top right. Then paste the contents of the JSON file.
 
-Once you've installed the dashboards, open the Cluster Dashboard and select a cluster using the 'cluster' dropdown menu. If data is flowing correctly, you will see a set of charts with active data. If yuo cannot see any try, ensure that the time range for the dashboards is set to the last 10 minutes (you can find this settings at the upper right-hand corner of the UI).
+Once you've installed the dashboards, open the Cluster Dashboard and select a cluster using the 'cluster' dropdown menu. If data is flowing correctly, you will see a set of charts with active data. If you cannot see any data, ensure that the time range for the dashboards is set to the last 10 minutes (you can find this settings at the upper right-hand corner of the UI).
 
 == Support
 
